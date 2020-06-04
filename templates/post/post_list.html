@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Our Blog Posts
+{% endblock title %}
+{% block posts %}
+
+{% for post in posts %}
+<div class="post-container">
+    <h2>{{post.title|title}}</h2>
+    <p>{{post.get_summary}}</p>
+    <button class='btn btn-detail'><a href=' {% url 'post:post-detail' post.pk %}'>See More <i class="fas fa-angle-double-right"></i></a></button>
+    <footer>
+    <small><i class="fas fa-calendar-day"></i> {{post.updated}}</small></footer>
+</div>
+{% endfor %}
+
+{% endblock posts %}
