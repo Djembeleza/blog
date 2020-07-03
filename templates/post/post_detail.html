@@ -6,10 +6,12 @@
 <div class='detail-div'>
     <h2>{{post.title}}</h2>
     <p>{{post.content}}</p>
+    <img src="{{post.image.url}}" alt="{{post.title|title}}" class="responsive-img">
     <div class='btn-div'>
-        <button class='btn btn-edit'><a href='{% url 'post:post-update' post.pk %}'>Edit Post <i class="fas fa-edit"></i></a></button>
-        <button class='btn btn-delete'><a href='{% url 'post:post-delete' post.pk %}'>Delete Post <i class="fas fa-trash-alt"
-                    style="color: maroon;"></i></a></button>
+        <button class='btn btn-edit'><a href='{% url 'post:post-update' post.pk %}'>Edit Post <i
+                    class="fas fa-edit"></i></a></button>
+        <button class='btn btn-delete'><a href='{% url 'post:post-delete' post.pk %}'>Delete Post <i
+                    class="fas fa-trash-alt" style="color: maroon;"></i></a></button>
     </div>
 </div>
 {% endblock posts %}

@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'post'
+    # My apps
+    'post',
+
+    # Third Party Apps
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +128,9 @@ STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'static')]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'blog/static_cdn')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# Login
+LOGIN_REDIRECT_URL = 'post:index'
+LOGIN_URL = 'post:user-login'

@@ -1,22 +1,23 @@
-*,*::after,*::before {
+*,*:after,*:before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 :root {
-    --first-color: #F2FBEF;
-    --second-color: #92ad94;
-    --third-color: #748b75;
-    --fourth-color: #503d42;
-    --fifth-color: #84c318;
+    --first-color: #7180ac;
+    --second-color: #2B4570;
+    --third-color: #A8D0DB;
+    --fourth-color: #E49273;
+    --fifth-color: #A37A74;
+    --sixth-color: #EB8A90;
     --button-font-weight: 650;
     --link-font-weight: 800;
-    --body-font-size: 16px;
+    --body-font-size: 1rem;
 }
 
 body {
-    background-color: var(--second-color);
+    background-color: var(--sixth-color);
     font-size: var(--body-font-size);
 }
 
@@ -24,6 +25,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Comic Sans MS", cursive, sans-serif;
   }
   
+a {
+    text-decoration: none;
+    color: inherit;
+}  
   p {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   }
@@ -34,6 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
+    padding: 1rem;
     flex-direction: column;
     border-bottom: 3px solid;
 }
@@ -50,18 +56,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Style the navigation */
 .main-nav {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     background-color: var(--fourth-color);
-    align-items: center;
-    border-bottom: 5px outset;
+    border-bottom: 5px outset var(--first-color);
     min-height: 10vh;
     margin-bottom: 0.8rem;
-}
-
-
-.main-nav h1 {
-margin-left: 2rem;
+    padding: 0.35rem;
+    text-align: center;
+    position: relative;
 }
 
 .main-nav a {
@@ -79,19 +81,20 @@ margin-left: 2rem;
 
   }
 .main-nav a:active {
-    text-decoration: line-through double var(--third-color) 0.2rem;
+    text-decoration: line-through double var(--third-color) 0.45rem;
 }
 
 .nav-list {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     list-style-type: none;
     list-style-position: inside;
-    margin-right: 0.6rem;
 }
 
 .nav-list li {
     padding: 0.6rem;
+    font-size: 2rem;
+    width: 100%;
+    text-transform: lowercase;
 }
 
 /* Navigation Style Ends Here */
@@ -100,22 +103,35 @@ margin-left: 2rem;
 /* Style the POst div */
 .post-div {
     text-align: left;
-    padding: 0.6rem;
+    padding: 0.9rem;
 }
 /* End STyle for post div */
 
 /* Post List Style */
 .post-container {
-    border-bottom: 2px solid var(--fourth-color);
+    border-bottom: 2px solid var(--first-color);
     margin-top: 1rem;
 }
 
+.responsive-img {
+    width: 100%;
+    height: auto;
+    padding: 0.4rem;
+    border: 0.5rem solid var(--first-color);
+    border-radius: 0.4rem;
+    margin-bottom: 0.8rem;
+}
 .post-container h2, .post-container p, .post-container footer {
     margin-top: 0.6rem;
 }
 
 .post-container p {
     margin-bottom: 1.2rem;
+    padding: 0.2rem;
+}
+
+.post-container h2 {
+    text-align: center;
 }
 
 .post-container footer {
@@ -128,12 +144,21 @@ margin-left: 2rem;
 .btn {
     padding: 0.4rem 0.6rem;
     border-radius: 1rem;
-    border-top-right-radius: 0rem;
-    border-bottom-left-radius: 0rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 3rem;
     text-align: center;
     font-weight: var(--button-font-weight);
-    width: 9rem;
+    width: 100%;
     height: 3rem;
+    font-size: 1.4rem;
+}
+
+.nav-btn {
+    position: absolute;
+    display: block;
+    font-size: 50px;
+    right: 0em;
+    color: inherit;
 }
 
 .btn-detail {
@@ -154,8 +179,7 @@ margin-left: 2rem;
 }
 
 .btn-create {
-    background-color: var(--third-color);
-    border: 6px dashed var(--fourth-color);
+    border: 6px solid var(--fourth-color);
 }
 
 .btn-submit {
@@ -169,14 +193,49 @@ margin-left: 2rem;
     justify-content: space-around;
 }
 
-
+.btn-submit, .btn-delete {
+    cursor: pointer;
+}
 .container > .btn {
-    align-self: flex-end;
-    margin-right: 1rem;
 }
 /* End Button Styling */
 
 /* Style Detail Div */
 .detail-div p {
     margin-bottom: 2rem;
+}
+
+  /*  Style the form */
+  form {
+    padding: 1rem;
+}
+
+form p {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+form p:last-of-type {
+    margin-bottom: 0.8rem;
+}
+
+form p input {
+    padding: 1rem;
+    height: 2rem;
+    width: 100%;
+}
+
+p label {
+    font-weight: 800;
+}
+
+form p input:focus {
+    border-radius: 2rem;
+    border-bottom: 3px solid var(--fourth-color);
+    transition: border-radius 2s;
+}
+
+form p textarea:focus {
+    border-bottom: 5px dotted var(--fourth-color);
 }

@@ -9,9 +9,11 @@ Our Blog Posts
 <div class="post-container">
     <h2>{{post.title|title}}</h2>
     <p>{{post.get_summary}}</p>
-    <button class='btn btn-detail'><a href=' {% url 'post:post-detail' post.pk %}'>See More <i class="fas fa-angle-double-right"></i></a></button>
+    <img src="{{ post.image.url }}" alt="{{post.title|title}}" class="responsive-img">
+    <button class='btn btn-detail'><a href=' {% url 'post:post-detail' post.pk %}'>See More <i
+                class="fas fa-angle-double-right"></i></a></button>
     <footer>
-    <small><i class="fas fa-calendar-day"></i> {{post.updated}}</small></footer>
+        <small><i class="fas fa-calendar-day"></i> {{post.updated}}</small></footer>
 </div>
 {% endfor %}
 

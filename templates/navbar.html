@@ -1,8 +1,19 @@
 <nav class="main-nav">
-            {% url 'post:index' as home %}
-            <h1><a href='{{home}}'>Blog</a></h1>
+            
+            <h1><a href='{% url 'post:index' %}'>Blog</a></h1>
+
+{% comment %} <i class="fas fa-bars"></i> {% endcomment %}
+<i class="fas fa-hamburger nav-btn"></i>
             <ul class='nav-list'>
-                <li>About</li>
-                <li>Contact Us</li>
+                {% if user.is_authenticated %}
+                {# Display username and Sign-Out Button when user is authenticated #}
+                <li>Logged in as {{user.username}}<li/>
+                <li><a href='{% url 'post:logout' %}'>Sign Out</a></li>
+                {% else %}
+                <li><a href='{% url 'post:register-user' %}'>Register</a></li>
+                <li><a href='{% url 'post:user-login' %}'>Sign In</a></li>
+                {% endif %}
+                {% comment %} <li>About</li>
+                <li>Contact Us</li> {% endcomment %}
             </ul>
  </nav>
