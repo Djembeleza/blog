@@ -20,11 +20,26 @@
         <button class='btn btn-create'><a href='{% url 'post:post-create' %}'>Add Post <i class='fas fa-plus-circle'></i></a></button>
         {% endif %}    
         
+
+        <div class='content-div'>
+        {% block content %}
+
+
+        {% endblock content %}
+
+        {% block body %}
+        {% endblock body %}
+
+       
+        </div>
         <div class="post-div">
         {% block posts %}
         
         {% endblock posts %}
-        </div>
+        </div> {% block extra_body %}
+        {% endblock extra_body %}
+
+
         {% include 'footer.html' %}
     </div>
     

@@ -14,7 +14,7 @@ class Post(models.Model):
         ordering = ['-updated']
 
     def get_summary(self):
-        return self.content[:10] + '...'
+        return self.content[:20] + '...'
 
     def __str__(self):
         return self.title

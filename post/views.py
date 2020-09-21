@@ -13,7 +13,12 @@ from django.contrib.auth import (
     login,
     authenticate
 )
-from django.contrib.auth.views import (LoginView, LogoutView)
+from django.contrib.auth.views import (LoginView,
+                                       LogoutView,
+                                       PasswordChangeView,
+                                       PasswordResetView,
+                                       PasswordResetDoneView,
+                                       PasswordResetConfirmView)
 from django.contrib.auth.mixins import (LoginRequiredMixin)
 from .models import Post
 from .forms import UserForm
@@ -52,7 +57,7 @@ class PostUpdateView(UpdateView):
 
 
 class UserLoginView(LoginView):
-    template_name = 'registration/register.html'
+    template_name = 'registration/login.html'
 
 
 class UserLogoutView(LogoutView):
@@ -61,7 +66,7 @@ class UserLogoutView(LogoutView):
 
 class UserFormView(View):
     form_class = UserForm
-    template_name = 'registration_form.html'
+    template_name = 'registration/registration_form.html'
 
     # Display blank form
     def get(self, request):
@@ -93,3 +98,18 @@ class UserFormView(View):
                     return redirect('post:index')
 
         return render(request, self.template_name, {'form': form})
+
+
+class UserPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
+    template_name = 'account/password_change.html'
+    success_url = reverse_lazy('post:index')
+    # NOTE: Add a success message that displays after password changed
+
+
+class UserPasswordResetConfirmView(PasswordResetConfirmView):
+    success_url = reverse_lazy('post:user-login')
+
+
+class UserPasswordResetView(PasswordResetView):
+    template_name = 'account/password_reset.html'
+    success_url = reverse_lazy('post:user-login')

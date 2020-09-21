@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+</head>
+
+<body style="color: #2B4570;">
+    <section class='form-section'>
+        <img src='{% static 'images/zane-lee-XT9iDcKESjE-unsplash.jpg' %}'>
+        <div class='form-div'>
+            <h2 style="text-align: center;">User Sign-In</h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                {% comment %} <p style="margin-left: 2rem; color:aquamarine;"><a href='#'>Forgot password?</a></p> {% endcomment %}
+                <input type="submit" value="Register" class='btn btn-submit'>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

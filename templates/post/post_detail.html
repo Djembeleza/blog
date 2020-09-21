@@ -4,7 +4,7 @@
 {% endblock title %}
 {% block posts %}
 <div class='detail-div'>
-    <h2>{{post.title}}</h2>
+    <h2>{{post.title|title}}</h2>
     <p>{{post.content}}</p>
     <img src="{{post.image.url}}" alt="{{post.title|title}}" class="responsive-img">
     <div class='btn-div'>
