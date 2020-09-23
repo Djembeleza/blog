@@ -20,7 +20,8 @@ from django.contrib.auth.views import (LoginView,
                                        PasswordResetDoneView,
                                        PasswordResetConfirmView)
 from django.contrib.auth.mixins import (LoginRequiredMixin)
-from .models import Post
+from .models import (Post,
+                     Report)
 from .forms import UserForm
 from django.urls import reverse_lazy
 
@@ -54,6 +55,11 @@ class PostUpdateView(UpdateView):
     template_name = "post/post_update.html"
     fields = ['title', 'content']
     success_url = reverse_lazy('post:index')
+
+
+class ReportCreateView(CreateView):
+    model = Report
+    template_name = "report_create.html"
 
 
 class UserLoginView(LoginView):

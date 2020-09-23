@@ -1,5 +1,14 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+
+class Report(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    date_reported = models.DateField(auto_now=True)
 
 
 class Post(models.Model):
