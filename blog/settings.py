@@ -25,8 +25,7 @@ SECRET_KEY = '&@n4580x)g#u@5l3n1mi-ys&w4%sj7fv++$j@_yzeawh57h_z4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djembybot.pythonanywhere.com',
-                 '127.0.0.1:8000']
+ALLOWED_HOSTS = ['djembybot.pythonanywhere.com']
 
 
 # Application definition
