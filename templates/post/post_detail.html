@@ -3,15 +3,17 @@
 {{post.title}}
 {% endblock title %}
 {% block posts %}
-<div class='detail-div'>
-    <h2>{{post.title|title}}</h2>
-    <p>{{post.content}}</p>
-    <img src="{{post.image.url}}" alt="{{post.title|title}}" class="responsive-img">
-    <div class='btn-div'>
-        <button class='btn btn-edit'><a href='{% url 'post:post-update' post.pk %}'>Edit Post <i
-                    class="fas fa-edit"></i></a></button>
-        <button class='btn btn-delete'><a href='{% url 'post:post-delete' post.pk %}'>Delete Post <i
-                    class="fas fa-trash-alt" style="color: maroon;"></i></a></button>
+<div class='card col-sm-12 p-2 mx-auto mb-3 row'>
+    <img src="{{post.image.url}}" alt="{{post.title|title}}" class="card-img-top img-fluid col-sm-12 col-lg-5">
+    <div class="card-body col-sm-12 col-lg-5">
+        <h2 class="card-title">{{post.title|title}}</h2>
+        <p class="card-text">{{post.content}}</p>
+        <div class='btn-group'>
+            <button class='btn btn-outline-secondary'><a href='{% url 'post:post-update' post.pk %}'>Edit Post <i
+                        class="fas fa-edit"></i></a></button>
+            <button class='btn btn-outline-danger'><a href='{% url 'post:post-delete' post.pk %}'>Delete Post <i
+                        class="fas fa-trash-alt" style="color: maroon;"></i></a></button>
+        </div>
     </div>
 </div>
 {% endblock posts %}

@@ -25,7 +25,8 @@ SECRET_KEY = '&@n4580x)g#u@5l3n1mi-ys&w4%sj7fv++$j@_yzeawh57h_z4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['djembybot.pythonanywhere.com',
+                 '127.0.0.1:8000']
 
 
 # Application definition
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
 
     # Third Party Apps
     'rest_framework',
+    'crispy_forms',
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -136,3 +138,6 @@ MEDIA_URL = '/media/'
 # Login
 LOGIN_REDIRECT_URL = 'post:index'
 LOGIN_URL = 'post:user-login'
+
+# CRispy form settings
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

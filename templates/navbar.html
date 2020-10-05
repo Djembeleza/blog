@@ -1,13 +1,22 @@
 
- <nav class="navbar navbar-expand-lg navbar-primary bg-warning">
+ <nav class="navbar navbar-expand-lg navbar-primary bg-warning mb-3">
   <a class="navbar-brand" href="{% url 'post:index' %}">Blog</a>
+
+  {% if request.path == "/" %}
+        <a href='{% url 'post:post-create' %}' class='btn btn-primary'>Add Post <i class='fas fa-plus-circle'></i></a>
+        {% endif %}
+  
+  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="fas fa-bars"></span>
   </button>
+
   
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto text-center">
+          
+      
       <li class="nav-item">
         <a class="nav-link" href="{% url 'post:index' %}">Home</a>
       </li>

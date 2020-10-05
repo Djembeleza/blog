@@ -6,7 +6,7 @@ Blog Posts
 {% block posts %}
 
 {% for post in posts %}
-<div class="card col-md-5 mx-auto mb-2 col-sm-12">
+<div class="card col-md-5 mx-auto mb-2 p-2 col-sm-12">
     <img class='card-img-top' src="{{ post.image.url }}" alt="{{post.title|title}}" class="responsive-img">
 <div class='card-body'>
     <h2 class='card-title'>{{post.title|title}}</h2>
