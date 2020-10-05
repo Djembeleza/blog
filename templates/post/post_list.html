@@ -6,14 +6,16 @@ Blog Posts
 {% block posts %}
 
 {% for post in posts %}
-<div class="post-container">
-    <h2>{{post.title|title}}</h2>
-    <p>{{post.get_summary}}</p>
-    <img src="{{ post.image.url }}" alt="{{post.title|title}}" class="responsive-img">
-    <button class='btn btn-detail'><a href=' {% url 'post:post-detail' post.pk %}'>See More <i
+<div class="card col-md-5 mx-auto mb-2 col-sm-12">
+    <img class='card-img-top' src="{{ post.image.url }}" alt="{{post.title|title}}" class="responsive-img">
+<div class='card-body'>
+    <h2 class='card-title'>{{post.title|title}}</h2>
+    <p class='card-text'>{{post.get_summary}}</p>
+<button class='btn btn-primary'><a href=' {% url 'post:post-detail' post.pk %}'>See More <i
                 class="fas fa-angle-double-right"></i></a></button>
-    <footer>
-        <small><i class="fas fa-calendar-day"></i> {{post.updated}}</small></footer>
+</div>
+    
+    <div class='card-footer'>{{post.updated}}</div>
 </div>
 {% endfor %}
 

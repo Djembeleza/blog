@@ -18,7 +18,7 @@
 
         {# Display this button only on the home page #}
         {% if request.path == "/" %}
-        <button class='btn btn-create'><a href='{% url 'post:post-create' %}'>Add Post <i class='fas fa-plus-circle'></i></a></button>
+        <button class='btn btn-outline-secondary'><a href='{% url 'post:post-create' %}'>Add Post <i class='fas fa-plus-circle'></i></a></button>
         {% endif %}    
         
 
@@ -33,11 +33,13 @@
 
        
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid row mx-auto">
         {% block posts %}
         
         {% endblock posts %}
-        </div> {% block extra_body %}
+        </div> 
+        
+        {% block extra_body %}
         {% endblock extra_body %}
 
 
